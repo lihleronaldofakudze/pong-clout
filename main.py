@@ -1,4 +1,6 @@
 import pygame
+import Paddle from models
+import Ball from models
 pygame.init()
 
 WIDTH, HEIGHT = 700, 500
@@ -13,44 +15,6 @@ BLACK = (0, 0, 0)
 
 PADDLE_WIDTH, PADDLE_HEIGHT = 20, 100
 BALL_RADIUS = 7
-
-class Paddle:
-    COLOR = WHITE
-    VEL = 4 
-    
-    def __init__(self, x, y, width, height):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
-    
-    def draw(self, win):
-        pygame.draw.rect(win, self.COLOR, (self.x, self.y, self.width, self.height))
-        
-    def move(self, up=True):
-        if up:
-            self.y -= self.VEL
-        else:
-            self.y += self.VEL
-            
-            
-class Ball:
-    MAX_VEL = 5
-    COLOR = WHITE
-    
-    def __init__(self, x, y, radius):
-        self.x = x
-        self.y = y
-        self.radius = radius
-        self.x_vel = self.MAX_VEL
-        self.y_vel = 0
-        
-    def draw(self, win):
-        pygame.draw.circle(win, self.COLOR, (self.x, self.y), self.radius)
-        
-    def move(self):
-        self.x += self.x_vel
-        self.y + self.y_vel
         
 
 def draw(win, paddles, ball):
